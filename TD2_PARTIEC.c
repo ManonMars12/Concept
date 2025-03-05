@@ -23,6 +23,38 @@ int somme_tab(int* tab, int taille, int *computed_sum){
     return 0; 
 }
 
+int search_array(int* tab, int taille, int cherche, int* place){
+    if (tab==NULL){
+        return -1; 
+    }
+    for (int i = 0; i < taille; i++) {
+       if (*(tab + i) == cherche) { 
+            *place = i; 
+       }
+       return 0; 
+    }
+}
+
+//Exercice donné en classe 
+
+int search_array_modif(int* tab, int taille, int cherche, int** ptr_sur_element_a_modif){
+    if (tab==NULL){
+        return -1; 
+    }
+    for (int i = 0; i < taille; i++) {
+       if (*(tab + i) == cherche) { 
+            *ptr_sur_element_recherche=&(*(tab+i));
+            *ptr_sur_element_recherche = *(tab + i);
+            *ptr_sur_element_a_modif= ptr_sur_element_recherche;
+        
+
+       }
+    }
+    
+    return 0; 
+
+}
+
 // Partie C 
 
 int rec_simp_facto(int n) {
@@ -76,10 +108,15 @@ int main() {
 
 
     int val = 0; 
+    int place=0;
 
     somme_tab(tab,5,&val);
 
     printf("La somme du tableau est : %i", val);
+
+    search_array(tab, 5, 10, place);
+    printf("Il est en position : %i", place);
+
 
     return 0; 
 }
