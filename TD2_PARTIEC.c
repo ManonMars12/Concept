@@ -1,4 +1,6 @@
 #include <stdio.h> 
+#include <time.h>
+#include "util_rand.h"
 
 // Partie B 
 
