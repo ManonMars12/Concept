@@ -1,14 +1,27 @@
 #include <stdio.h> 
-// Partie A 
-int al_1(){
-    return 1;
-}
-
 
 // Partie B 
 
 int stack_overflow(int n){
     return n*stack_overflow(n-1);
+}
+
+int somme_tab(int* tab, int taille, int computed_sum){
+    init_random(); 
+    for (int i = 0; i < taille; i++) {
+        tab[i]=random_int(); 
+    }
+
+    if (tab==NULL){
+        return -1; 
+    }
+
+    computed_sum=0;
+    for (int i = 0; i < taille; i++) {
+        computed_sum += tab[i];
+    }
+
+    return 0; 
 }
 
 // Partie C 
