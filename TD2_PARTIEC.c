@@ -1,4 +1,5 @@
 #include <stdio.h> 
+#include <stdlib.h>
 #include <time.h>
 #include "util_rand.h"
 
@@ -8,20 +9,16 @@ int stack_overflow(int n){
     return n*stack_overflow(n-1);
 }
 
-int somme_tab(int* tab, int taille, int computed_sum){
-    init_random(); 
-    for (int i = 0; i < taille; i++) {
-        tab[i]=random_int(); 
-    }
-
+int somme_tab(int* tab, int taille, int *computed_sum){   
     if (tab==NULL){
         return -1; 
     }
 
-    computed_sum=0;
+    *computed_sum=0;
     for (int i = 0; i < taille; i++) {
-        computed_sum += tab[i];
+        *computed_sum += *(tab+i);
     }
+    
 
     return 0; 
 }
@@ -75,6 +72,14 @@ int main() {
     printf("Test de rec_term_pui : %d\n", rec_term_pui(2, 2, 1));
 
     //printf("Test de stack_overflow : %d\n", stack_overflow(100000));
+    int tab[5]={0,10,1,3,5};
+
+
+    int val = 0; 
+
+    somme_tab(tab,5,&val);
+
+    printf("La somme du tableau est : %i", val);
 
     return 0; 
 }
